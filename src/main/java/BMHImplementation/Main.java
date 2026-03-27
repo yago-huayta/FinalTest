@@ -46,6 +46,22 @@ public class Main {
         String decoded = "";
         for (int i = 0; i < text.length; i++) {
             int currentChar = text[i];
+
+            int charAscii = currentChar - 32;
+
+            charAscii = charAscii - rPosTest2; // undoes the rotor 2
+
+            if (charAscii < 0) {
+                charAscii += 95; // wraps around to the other end of ascii code
+            }
+
+            charAscii = charAscii - rPosTest1; // undoes the rotor 2
+
+            if (charAscii < 0) {
+                charAscii += 95; // wraps around to the other end of ascii code
+            }
+
+            decoded += (char) (charAscii + 32); // maps back to ascii and adds it into the decoded text
         }
         return decoded;
     }
