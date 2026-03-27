@@ -25,10 +25,14 @@ public class Main {
         char[] firstKPrintableChars = getFirstKPrintableChars(FULL_TEXT, 200);
         String decodedFirstK = "";
 
+        int matchesV1 = 0, matchesV2 = 0, matchesV3 = 0;
+
         for (rPos1 = 0; rPos1 < ALPHABET_LENGTH; rPos1++) {
             for (rPos2 = 0; rPos2 < ALPHABET_LENGTH; rPos2++) {
                 decodedFirstK = decodeText(rPos1, rPos2, firstKPrintableChars);
-                System.out.println(decodedFirstK);
+
+
+
             }
         }
     }
