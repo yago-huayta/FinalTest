@@ -10,8 +10,9 @@ public class Main {
 
         final String FULL_TEXT = readFileText();
         final String[] ANCHORS = {"THE", "AND", "TO", "OF", "IN", "THAT", "IS", "IT", "FOR", "YOU"};
+        final int ALPHABET_LENGTH = 95;
 
-        final char[] ALPHABET = new char[95];
+        final char[] ALPHABET = new char[ALPHABET_LENGTH];
 
         for (int i = 32; i < 127; i++) {
             ALPHABET[i-32] = (char) i;
@@ -23,10 +24,14 @@ public class Main {
         int rPos1 = 0, rPos2 = 0;
         char[] firstKPrintableChars = getFirstKPrintableChars(FULL_TEXT, 200);
 
-
+        for (rPos1 = 0; rPos1 < ALPHABET_LENGTH; rPos1++) {
+            for (rPos2 = 0; rPos2 < ALPHABET_LENGTH; rPos2++) {
+                String decodedFirstK = decodeText(rPos1, rPos2, firstKPrintableChars);
+            }
+        }
     }
 
-    private static String decodeText (int rPosTest1, int rPosTest2) {
+    private static String decodeText (int rPosTest1, int rPosTest2, char[] text) {
         String decoded = "";
         return decoded;
     }
