@@ -23,10 +23,12 @@ public class Main {
 
         int rPos1 = 0, rPos2 = 0;
         char[] firstKPrintableChars = getFirstKPrintableChars(FULL_TEXT, 200);
+        String decodedFirstK = "";
 
         for (rPos1 = 0; rPos1 < ALPHABET_LENGTH; rPos1++) {
             for (rPos2 = 0; rPos2 < ALPHABET_LENGTH; rPos2++) {
-                String decodedFirstK = decodeText(rPos1, rPos2, firstKPrintableChars);
+                decodedFirstK = decodeText(rPos1, rPos2, firstKPrintableChars);
+                System.out.println(decodedFirstK);
             }
         }
     }
