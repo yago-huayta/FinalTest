@@ -103,7 +103,7 @@ public class Main {
         for (int i = 0; i < text.length; i++) {
             int currentChar = text[i];
 
-            if (currentChar >= 32 && currentChar <= 126) { // only decrypt when it is not a spcce or new line or \r
+            if (currentChar >= 32 && currentChar <= 126) { // only decrypt when it is neither \n or \r
                 int charAscii = currentChar - 32;
 
                 charAscii = charAscii - rPosTest2; // undoes the rotor 2
@@ -120,7 +120,7 @@ public class Main {
 
                 decoded += (char) (charAscii + 32); // maps back to ascii and adds it into the decoded text
             } else {
-                decoded += (char)currentChar;
+                decoded += (char)currentChar; // if \n or \r just add it as it is
             }
 
             rPosTest1++;
