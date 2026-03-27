@@ -9,7 +9,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         final String FULL_TEXT = readFileText();
-        final String[] ANCHORS = {"THE", "AND", "TO", "OF", "IN", "THAT", "IS", "IT", "FOR", "YOU"};
+        final String[] ANCHORS = {"THE", "AND", "TO", "OF", "IN", "THAT", "IS", "IT", "FOR", "YOU",
+                                  "The", "And", "To", "Of", "In", "That", "Is", "It", "For", "You",
+                                  "the", "and", "to", "of", "in", "that", "is", "it", "for", "you"};
         final int ALPHABET_LENGTH = 95;
 
         final char[] ALPHABET = new char[ALPHABET_LENGTH];
@@ -46,6 +48,8 @@ public class Main {
                         matchesV3++;
                     }
                 }
+
+                System.out.println(decodedFirstK);
 
                 // There are 10 anchor words, so when can say 6 is the majority
                 if (matchesV1 >= 6) {
