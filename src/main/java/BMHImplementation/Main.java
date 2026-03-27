@@ -178,6 +178,7 @@ public class Main {
     }
 
 
+    // Works
     public static int bmhSearch(String text, String pat) {
         int n = text.length(), m = pat.length();
         if (m == 0 || m > n) return -1;
@@ -212,7 +213,7 @@ public class Main {
 
         int[] table = new int[256];
 
-        for (int i = 0; i < 256; i++) table[i] = M - 1;
+        for (int i = 0; i < 256; i++) table[i] = M - 1;  // It is supposed to be M (explanation in the txt file)
 
         for (int i = 0; i < M - 1; i++)
             table[p.charAt(i) & 0xFF] = (M - 1) - i;
@@ -250,7 +251,7 @@ public class Main {
             if (j < 0) return pos;
 
             char c = s.charAt(pos + j);
-            pos += skip[c & 0xFF];
+            pos += skip[c & 0xFF]; // This fails (explanation in the doc)
         }
         return -1;
     }
