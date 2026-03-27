@@ -23,10 +23,12 @@ public class Main {
         int rPos1 = 0, rPos2 = 0;
         char[] firstKPrintableChars = getFirstKPrintableChars(FULL_TEXT, 200);
 
+        System.out.println(firstKPrintableChars);
+
     }
 
     private static char[] getFirstKPrintableChars (String text, int k) {
-        return null;
+        return text.substring(0, k).toCharArray();
     }
 
     private static String readFileText () throws IOException {
