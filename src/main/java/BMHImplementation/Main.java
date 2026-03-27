@@ -50,9 +50,7 @@ public class Main {
                     }
                 }
 
-
                 // There are 10 anchor words, so when can say 6 is the majority
-
                 if (matchesV1 >= 6) {
                     System.out.println("Rotator position 1 : " + rPos1);
                     finalRPos1 = rPos1;
@@ -82,10 +80,11 @@ public class Main {
                 }
 
             }
-
-            String FULL_TEXT_DECODED = decodeText(0, 28, FULL_TEXT.toCharArray());
-            System.out.println(FULL_TEXT_DECODED);
         }
+
+        System.out.println("Final decoded text:");
+        String FULL_TEXT_DECODED = decodeText(finalRPos1, finalRPos2, FULL_TEXT.toCharArray());
+        System.out.println(FULL_TEXT_DECODED);
     }
 
     /**
@@ -105,7 +104,7 @@ public class Main {
         for (int i = 0; i < text.length; i++) {
             int currentChar = text[i];
 
-            if (currentChar > 32 && currentChar <= 126) { // only decrypt when it is not a spcce or new line or \r
+            if (currentChar >= 32 && currentChar <= 126) { // only decrypt when it is not a spcce or new line or \r
                 int charAscii = currentChar - 32;
 
                 charAscii = charAscii - rPosTest2; // undoes the rotor 2
@@ -164,12 +163,6 @@ public class Main {
     }
 
 
-    /** Version 1 BMH
-     *
-     * @param text
-     * @param pat
-     * @return
-     */
     public static int bmhSearch(String text, String pat) {
         int n = text.length(), m = pat.length();
         if (m == 0 || m > n) return -1;
@@ -195,12 +188,6 @@ public class Main {
         return -1;
     }
 
-    /** Version 2 BMH
-     *
-     * @param t
-     * @param p
-     * @return
-     */
     public static int bmhSearchV2(String t, String p) {
         int N = t.length(), M = p.length();
 
@@ -228,12 +215,6 @@ public class Main {
         return -1;
     }
 
-    /** Version 3 BMH
-     *
-     * @param s
-     * @param pat
-     * @return
-     */
     public static int horspoolV3(String s, String pat) {
         int n = s.length(), m = pat.length();
 
