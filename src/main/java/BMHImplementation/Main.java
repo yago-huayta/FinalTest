@@ -13,6 +13,15 @@ public class Main {
 
         final char[] ALPHABET = new char[95];
 
+        for (int i = 32; i < 127; i++) {
+            ALPHABET[i-32] = (char) i;
+        }
+
+        char[] rotor1 = ALPHABET;
+        char[] rotor2 = ALPHABET;
+
+        System.out.println(ALPHABET);
+
     }
 
     private static String readFileText () throws IOException {
