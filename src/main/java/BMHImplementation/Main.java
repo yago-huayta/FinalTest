@@ -1,8 +1,6 @@
 package BMHImplementation;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -84,6 +82,10 @@ public class Main {
         System.out.println("Final decoded text:");
         String FULL_TEXT_DECODED = decodeText(finalRPos1, finalRPos2, FULL_TEXT.toCharArray());
         System.out.println(FULL_TEXT_DECODED);
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("plaintext.txt",true));
+        writer.write(FULL_TEXT_DECODED);
+        writer.close();
     }
 
     /**
