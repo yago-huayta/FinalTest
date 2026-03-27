@@ -1,9 +1,18 @@
 package BMHImplementation;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        final String FULL_TEXT = readFileText();
 
     }
+
+    private static String readFileText () {
+        return "";
+    }
+
 
     /** Version 1 BMH
      *
