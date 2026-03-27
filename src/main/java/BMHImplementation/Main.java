@@ -12,14 +12,20 @@ public class Main {
 
     }
 
-    private static String readFileText () {
+    private static String readFileText () throws IOException {
         String text = "";
 
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(Objects.requireNonNull(Main.class.getResourceAsStream("/Cipher.txt")))
         );
 
+        int character;
 
+        while ((character = reader.read()) != -1) {
+            text += (char) character;
+        }
+
+        reader.close();
 
         return "";
     }
