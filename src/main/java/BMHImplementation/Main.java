@@ -50,21 +50,23 @@ public class Main {
         for (int i = 0; i < text.length; i++) {
             int currentChar = text[i];
 
-            int charAscii = currentChar - 32;
+            if (currentChar > 32 && currentChar <= 126) { // only decrypt when it is not a spcce or new line or \r
+                int charAscii = currentChar - 32;
 
-            charAscii = charAscii - rPosTest2; // undoes the rotor 2
+                charAscii = charAscii - rPosTest2; // undoes the rotor 2
 
-            if (charAscii < 0) {
-                charAscii += 95; // wraps around to the other end of ascii code
+                if (charAscii < 0) {
+                    charAscii += 95; // wraps around to the other end of ascii code
+                }
+
+                charAscii = charAscii - rPosTest1; // undoes the rotor 2
+
+                if (charAscii < 0) {
+                    charAscii += 95; // wraps around to the other end of ascii code
+                }
+
+                decoded += (char) (charAscii + 32); // maps back to ascii and adds it into the decoded text
             }
-
-            charAscii = charAscii - rPosTest1; // undoes the rotor 2
-
-            if (charAscii < 0) {
-                charAscii += 95; // wraps around to the other end of ascii code
-            }
-
-            decoded += (char) (charAscii + 32); // maps back to ascii and adds it into the decoded text
 
             rPosTest1++;
             if (rPosTest1 >= 95) {
