@@ -3,6 +3,7 @@ package BMHImplementation;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Main {
@@ -36,7 +37,7 @@ public class Main {
                 int matchesV1 = 0, matchesV2 = 0, matchesV3 = 0;
                 decodedFirstK = decodeText(rPos1, rPos2, firstKPrintableChars);
 
-                for (String anchor : UNBIASED_ANCHORS) { // NOTE: CHANGE ANCHORS SET HERE!
+                for (String anchor : UNBIASED_ANCHORS) {
                     if (bmhSearch(decodedFirstK, anchor) != -1) { // trying the first version of bmh
                         matchesV1++;
                     }
@@ -58,8 +59,6 @@ public class Main {
                     finalRPos2 = rPos2;
                     System.out.println("Message: " + decodedFirstK);
                     System.out.println("WINNER IS VERSION 1");
-                    System.out.println("Other versions stats: ");
-                    System.out.println("V2: ");
                     rPositionsFound = true;
                 } else if (matchesV2 >= 6) {
                     System.out.println("Rotator position 1 : " + rPos1);
