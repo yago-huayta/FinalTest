@@ -62,6 +62,13 @@ public class Main {
             }
 
             decoded += (char) (charAscii + 32); // maps back to ascii and adds it into the decoded text
+
+            rPosTest1++;
+            if (rPosTest1 >= 95) {
+                rPosTest1 = 0;
+            }
+
+
         }
         return decoded;
     }
