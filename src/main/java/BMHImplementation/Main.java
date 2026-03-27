@@ -9,8 +9,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         final String FULL_TEXT = readFileText();
+        final String[] ANCHORS = {"THE", "AND", "TO", "OF", "IN", "THAT", "IS", "IT", "FOR", "YOU"};
 
-        System.out.println(FULL_TEXT);
+        final char[] ALPHABET = new char[95];
 
     }
 
