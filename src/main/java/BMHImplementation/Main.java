@@ -20,8 +20,13 @@ public class Main {
         char[] rotor1 = ALPHABET;
         char[] rotor2 = ALPHABET;
 
-        System.out.println(ALPHABET);
+        int rPos1 = 0, rPos2 = 0;
+        char[] firstKPrintableChars = getFirstKPrintableChars(FULL_TEXT, 200);
 
+    }
+
+    private static char[] getFirstKPrintableChars (String text, int k) {
+        return null;
     }
 
     private static String readFileText () throws IOException {
