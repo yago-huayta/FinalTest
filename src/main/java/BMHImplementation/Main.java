@@ -44,6 +44,7 @@ public class Main {
      */
     private static String decodeText (int rPosTest1, int rPosTest2, char[] text) {
         String decoded = "";
+        int startingPosition1 = rPosTest1;
         for (int i = 0; i < text.length; i++) {
             int currentChar = text[i];
 
@@ -68,6 +69,12 @@ public class Main {
                 rPosTest1 = 0;
             }
 
+            if (startingPosition1 == rPosTest1) { // if the rPos1 gets back again to where it being
+                rPosTest2++; // then we increase just as the assignment expected
+                if (rPosTest2 >= 95) {
+                    rPosTest1 = 0;
+                }
+            }
 
         }
         return decoded;
