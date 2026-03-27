@@ -85,6 +85,11 @@ public class Main {
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("plaintext.txt",true));
         writer.write(FULL_TEXT_DECODED);
+        writer.write(("\n final rpos1: " + finalRPos1) );
+        writer.write(("\n final rpos2: " + finalRPos2) );
+        writer.write(("\n Correct BMH is Version 1") );
+        writer.write(("\n Version 2 fails because it does not close its loop when there's no patter to be found") );
+        writer.write(("\n Version 3 fails because it jumps to much and skips letters") );
         writer.close();
     }
 
