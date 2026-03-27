@@ -28,12 +28,12 @@ public class Main {
         char[] firstKPrintableChars = getFirstKPrintableChars(FULL_TEXT, 200);
         String decodedFirstK = "";
 
-        int matchesV1 = 0, matchesV2 = 0, matchesV3 = 0;
         int finalRPos1 = 0, finalRPos2 = 0;
         boolean rPositionsFound = false;
 
         for (rPos1 = 0; rPos1 < ALPHABET_LENGTH && !rPositionsFound; rPos1++) {
             for (rPos2 = 0; rPos2 < ALPHABET_LENGTH && !rPositionsFound; rPos2++) {
+                int matchesV1 = 0, matchesV2 = 0, matchesV3 = 0;
                 decodedFirstK = decodeText(rPos1, rPos2, firstKPrintableChars);
 
                 for (String anchor : UNBIASED_ANCHORS) { // NOTE: CHANGE ANCHORS SET HERE!
@@ -82,6 +82,9 @@ public class Main {
                 }
 
             }
+
+            String FULL_TEXT_DECODED = decodeText(0, 28, FULL_TEXT.toCharArray());
+            System.out.println(FULL_TEXT_DECODED);
         }
     }
 
@@ -118,6 +121,8 @@ public class Main {
                 }
 
                 decoded += (char) (charAscii + 32); // maps back to ascii and adds it into the decoded text
+            } else {
+                decoded += (char)currentChar;
             }
 
             rPosTest1++;
@@ -128,7 +133,7 @@ public class Main {
             if (startingPosition1 == rPosTest1) { // if the rPos1 gets back again to where it being
                 rPosTest2++; // then we increase just as the assignment expected
                 if (rPosTest2 >= 95) {
-                    rPosTest1 = 0;
+                    rPosTest2 = 0;
                 }
             }
 
