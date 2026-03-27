@@ -119,19 +119,33 @@ public class Main {
                 }
 
                 decoded += (char) (charAscii + 32); // maps back to ascii and adds it into the decoded text
-            } else {
-                decoded += (char)currentChar; // if \n or \r just add it as it is
-            }
 
-            rPosTest1++;
-            if (rPosTest1 >= 95) {
-                rPosTest1 = 0;
-            }
 
-            if (startingPosition1 == rPosTest1) { // if the rPos1 gets back again to where it being
-                rPosTest2++; // then we increase just as the assignment expected
-                if (rPosTest2 >= 95) {
-                    rPosTest2 = 0;
+                rPosTest1++;
+                if (rPosTest1 >= 95) {
+                    rPosTest1 = 0;
+                }
+
+                if (startingPosition1 == rPosTest1) { // if the rPos1 gets back again to where it being
+                    rPosTest2++; // then we increase just as the assignment expected
+                    if (rPosTest2 >= 95) {
+                        rPosTest2 = 0;
+                    }
+                }
+
+            } else if (currentChar == '\n'){
+                decoded += (char)currentChar;
+
+                rPosTest1++;
+                if (rPosTest1 >= 95) {
+                    rPosTest1 = 0;
+                }
+
+                if (startingPosition1 == rPosTest1) { // if the rPos1 gets back again to where it being
+                    rPosTest2++; // then we increase just as the assignment expected
+                    if (rPosTest2 >= 95) {
+                        rPosTest2 = 0;
+                    }
                 }
             }
 
