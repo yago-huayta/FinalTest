@@ -10,6 +10,8 @@ public class Main {
 
         final String FULL_TEXT = readFileText();
 
+        System.out.println(FULL_TEXT);
+
     }
 
     private static String readFileText () throws IOException {
@@ -27,7 +29,7 @@ public class Main {
 
         reader.close();
 
-        return "";
+        return text;
     }
 
 
