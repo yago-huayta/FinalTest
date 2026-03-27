@@ -31,8 +31,22 @@ public class Main {
         }
     }
 
+    /**
+     * Stepping rules
+     * Rotor 1: +1 after every decoded printable character.
+     * Rotor 2: +1 only when Rotor 1 returns to its initial position.
+     * \r and \n are copied directly and do not advance rotors. (Now, it is said that it advances every single char)
+     *
+     * @param rPosTest1
+     * @param rPosTest2
+     * @param text
+     * @return
+     */
     private static String decodeText (int rPosTest1, int rPosTest2, char[] text) {
         String decoded = "";
+        for (int i = 0; i < text.length; i++) {
+            int currentChar = text[i];
+        }
         return decoded;
     }
 
