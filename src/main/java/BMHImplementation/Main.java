@@ -1,6 +1,9 @@
 package BMHImplementation;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -10,6 +13,14 @@ public class Main {
     }
 
     private static String readFileText () {
+        String text = "";
+
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(Objects.requireNonNull(Main.class.getResourceAsStream("/Cipher.txt")))
+        );
+
+
+
         return "";
     }
 
