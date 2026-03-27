@@ -28,7 +28,7 @@ public class Main {
         char[] firstKPrintableChars = getFirstKPrintableChars(FULL_TEXT, 200);
         String decodedFirstK = "";
 
-        int matchesV1Biased = 0, matchesV2 = 0, matchesV3 = 0;
+        int matchesV1 = 0, matchesV2 = 0, matchesV3 = 0;
         int finalRPos1 = 0, finalRPos2 = 0;
         boolean rPositionsFound = false;
 
@@ -36,23 +36,9 @@ public class Main {
             for (rPos2 = 0; rPos2 < ALPHABET_LENGTH && !rPositionsFound; rPos2++) {
                 decodedFirstK = decodeText(rPos1, rPos2, firstKPrintableChars);
 
-                for (String anchor : GIVEN_ANCHORS) {
+                for (String anchor : UNBIASED_ANCHORS) { // NOTE: CHANGE ANCHORS SET HERE!
                     if (bmhSearch(decodedFirstK, anchor) != -1) { // trying the first version of bmh
-                        matchesV1Biased++;
-                    }
-
-                    if (bmhSearchV2(decodedFirstK, anchor) != -1) { // trying the second version of bmh
-                        matchesV2++;
-                    }
-
-                    if (horspoolV3(decodedFirstK, anchor) != -1) { // trying the third version of bmh
-                        matchesV3++;
-                    }
-                }
-
-                for (String anchor : UNBIASED_ANCHORS) {
-                    if (bmhSearch(decodedFirstK, anchor) != -1) { // trying the first version of bmh
-                        matchesV1Biased++;
+                        matchesV1++;
                     }
 
                     if (bmhSearchV2(decodedFirstK, anchor) != -1) { // trying the second version of bmh
@@ -66,46 +52,18 @@ public class Main {
 
 
                 // There are 10 anchor words, so when can say 6 is the majority
-                if (matchesV1Biased >= 6) {
-                    System.out.println("***** BIASED RESULTS WITH GIVEN ANCHORS *****");
-                    System.out.println("Rotator position 1 : " + rPos1);
-                    finalRPos1 = rPos1;
-                    System.out.println("Rotator position 2 : " + rPos2);
-                    finalRPos2 = rPos2;
-                    System.out.println("Message: " + decodedFirstK);
-                    System.out.println("WINNER IS VERSION 1");
-                    rPositionsFound = true;
-                } else if (matchesV2 >= 6) {
-                    System.out.println("***** BIASED RESULTS WITH GIVEN ANCHORS *****");
-                    System.out.println("Rotator position 1 : " + rPos1);
-                    finalRPos1 = rPos1;
-                    System.out.println("Rotator position 2 : " + rPos2);
-                    finalRPos2 = rPos2;
-                    System.out.println("Message: " + decodedFirstK);
-                    System.out.println("WINNER IS VERSION 2");
-                    rPositionsFound = true;
-                } else if (matchesV3 >= 6) {
-                    System.out.println("***** BIASED RESULTS WITH GIVEN ANCHORS *****");
-                    System.out.println("Rotator position 1 : " + rPos1);
-                    finalRPos1 = rPos1;
-                    System.out.println("Rotator position 2 : " + rPos2);
-                    finalRPos2 = rPos2;
-                    System.out.println("Message: " + decodedFirstK);
-                    System.out.println("WINNER IS VERSION 3");
-                    rPositionsFound = true;
-                }
 
-                if (matchesV1Biased >= 6) {
-                    System.out.println("\n***** UNBIASED RESULTS WITH GIVEN ANCHORS *****");
+                if (matchesV1 >= 6) {
                     System.out.println("Rotator position 1 : " + rPos1);
                     finalRPos1 = rPos1;
                     System.out.println("Rotator position 2 : " + rPos2);
                     finalRPos2 = rPos2;
                     System.out.println("Message: " + decodedFirstK);
                     System.out.println("WINNER IS VERSION 1");
+                    System.out.println("Other versions stats: ");
+                    System.out.println("V2: ");
                     rPositionsFound = true;
                 } else if (matchesV2 >= 6) {
-                    System.out.println("\n***** UNBIASED RESULTS WITH GIVEN ANCHORS *****");
                     System.out.println("Rotator position 1 : " + rPos1);
                     finalRPos1 = rPos1;
                     System.out.println("Rotator position 2 : " + rPos2);
@@ -114,7 +72,6 @@ public class Main {
                     System.out.println("WINNER IS VERSION 2");
                     rPositionsFound = true;
                 } else if (matchesV3 >= 6) {
-                    System.out.println("\n***** UNBIASED RESULTS WITH GIVEN ANCHORS *****");
                     System.out.println("Rotator position 1 : " + rPos1);
                     finalRPos1 = rPos1;
                     System.out.println("Rotator position 2 : " + rPos2);
